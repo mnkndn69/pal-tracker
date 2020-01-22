@@ -1,18 +1,16 @@
 package io.pivotal.pal.tracker;
 
-public class TimeEntryRepository {
-    public void create(TimeEntry any) {
-    }
+import java.util.ArrayList;
+import java.util.List;
 
-    public void find(long timeEntryId) {
-    }
+public interface TimeEntryRepository {
+    TimeEntry create(TimeEntry timeEntry);
 
-    public void list() {
-    }
+    TimeEntry find(long id);
 
-    public void update(long eq, TimeEntry any) {
-    }
+    TimeEntry update(long id, TimeEntry timeEntry);
 
-    public void delete(long timeEntryId) {
-    }
+    void delete(long id);
+
+    List<TimeEntry> list();
 }
