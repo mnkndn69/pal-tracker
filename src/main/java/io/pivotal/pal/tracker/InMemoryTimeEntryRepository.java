@@ -6,17 +6,17 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-@Repository
+
 public class InMemoryTimeEntryRepository implements TimeEntryRepository {
 
-private Map<Long, TimeEntry> timeEntryRepo= new HashMap();
-private Long uniqueId = 1L;
+    private Map<Long, TimeEntry> timeEntryRepo = new HashMap();
+    private Long uniqueId = 1L;
 
     @Override
     public TimeEntry create(TimeEntry timeEntry) {
-         TimeEntry entry= new TimeEntry(uniqueId,timeEntry.getProjectId(),timeEntry.getUserId(),timeEntry.getDate(),timeEntry.getHours());
-         timeEntryRepo.put(uniqueId++,entry);
-         return entry;
+        TimeEntry entry = new TimeEntry(uniqueId, timeEntry.getProjectId(), timeEntry.getUserId(), timeEntry.getDate(), timeEntry.getHours());
+        timeEntryRepo.put(uniqueId++, entry);
+        return entry;
     }
 
     @Override
@@ -29,7 +29,7 @@ private Long uniqueId = 1L;
     @Override
     public TimeEntry update(long id, TimeEntry timeEntry) {
         TimeEntry entry = timeEntryRepo.get(id);
-        if(entry!=null) {
+        if (entry != null) {
             entry.setProjectId(timeEntry.getProjectId());
             entry.setUserId(timeEntry.getUserId());
             entry.setDate(timeEntry.getDate());
